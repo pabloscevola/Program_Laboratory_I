@@ -27,7 +27,7 @@ int main(void)
 */
 
 
-/*
+
 int main(void)
 {
 	float resultado;
@@ -37,8 +37,8 @@ int main(void)
 	}
 	return EXIT_SUCCESS;
 }
-*/
 
+/*
 int main(void)
 {
 	char letra;
@@ -48,7 +48,7 @@ int main(void)
 	}
 	return EXIT_SUCCESS;
 }
-
+*/
 
 
 

@@ -34,9 +34,10 @@ int main() {
 		flag = 1;
 	}
 	promedio = calcularPromedio(acumulador);
-	printf("el numero maximo es: %d\n", maxPedido);
-	printf("el numero minimo es: %d\n", minPedido);
-	printf("el promedio es: %.2f\n", promedio);
+	printf("El numero maximo es: %d\n", maxPedido);
+	printf("El numero minimo es: %d\n", minPedido);
+	printf("El promedio es: %.2f\n", promedio);
+	return 0;
 }
 
 int pedirNumero() {
