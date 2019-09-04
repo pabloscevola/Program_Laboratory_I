@@ -54,8 +54,8 @@ float Multiplicacion(float operandoUno, float operandoDos) {
 	return multiplicacion;
 }
 
-int Factorial(int operandoFactorial) {
-	int factorial;
+float Factorial(float operandoFactorial) {
+	float factorial;
 	if (operandoFactorial == 0 || operandoFactorial == 1) {
 		return 1;
 	} else {

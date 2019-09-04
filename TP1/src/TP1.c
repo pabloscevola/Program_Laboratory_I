@@ -20,8 +20,8 @@ int main(void) {
 	float resultadoResta;
 	float resultadoDivision;
 	float resultadoMultiplicacion;
-	int resultadoFactorialA;
-	int resultadoFactorialB;
+	float resultadoFactorialA;
+	float resultadoFactorialB;
 	printf("Ingrese la opcion que desea\n "
 			"1. Ingresar primer operando\n "
 			"2. Ingresar segundo operando\n "
@@ -66,7 +66,7 @@ int main(void) {
 					operandoDosRecibido, resultadoDivision);
 			printf("El resultado de %f * %f es: %f\n", operandoUnoRecibido,
 					operandoDosRecibido, resultadoMultiplicacion);
-			printf("El factorial de %i es: %i y El factorial de %i es: %i\n",
+			printf("El factorial de %f es: %f y El factorial de %f es: %f\n",
 					operandoUnoRecibido, resultadoFactorialA,
 					operandoDosRecibido, resultadoFactorialB);
 			break;

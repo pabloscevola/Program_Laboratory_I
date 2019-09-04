@@ -19,7 +19,7 @@ float Division(	float operandoUno,
 float Multiplicacion(	float operandoUno,
 						float operandoDos);
 
-int Factorial(int operandoFactorial);
+float Factorial(int operandoFactorial);
 
 
 
