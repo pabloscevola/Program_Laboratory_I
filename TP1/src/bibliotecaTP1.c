@@ -3,23 +3,21 @@
 #include <stdlib.h>
 #include "bibliotecaTP1.h"
 
-float getFloat(float *resultado, char *mensaje, char *mensajeError,
-		float minimo, float maximo, int reintentos) {
+float getFloat(float *presultado, char *pmensaje, char *pmensajeError,
+		int reintentos) {
 	int retorno = EXIT_ERROR;
 	float bufferFloat;
-	if (resultado != NULL && mensaje != NULL && mensajeError != NULL
-			&& minimo < maximo && reintentos >= 0) {
+	if (presultado != NULL && pmensaje != NULL && pmensajeError != NULL
+			&& reintentos >= 0) {
 		do {
-			printf("%s", mensaje);
-			__fpurge(stdin); // fflush en Windows
+			printf("%s", pmensaje);
+			__fpurge(stdin);
 			if (scanf("%f", &bufferFloat) == 1) {
-				if (bufferFloat >= minimo && bufferFloat <= maximo) {
-					retorno = EXIT_SUCCESS;
-					*resultado = bufferFloat;
-					break;
-				}
+				retorno = EXIT_SUCCESS;
+				*presultado = bufferFloat;
+				break;
 			}
-			printf("%s", mensajeError);
+			printf("%s", pmensajeError);
 			reintentos--;
 		} while (reintentos >= 0);
 	}
@@ -38,13 +36,12 @@ float Resta(float operandoUno, float operandoDos) {
 	return resta;
 }
 
-float Division(float operandoUno, float operandoDos) {
-	float division;
+float Division(float operandoUno, float operandoDos, float *pdivision) {
 	if (operandoDos == 0) {
 		return EXIT_ERROR;
 	} else {
-		division = operandoUno / operandoDos;
-		return division;
+		*pdivision = operandoUno / operandoDos;
+		return EXIT_SUCCESS;
 	}
 }
 
@@ -54,17 +51,19 @@ float Multiplicacion(float operandoUno, float operandoDos) {
 	return multiplicacion;
 }
 
-float Factorial(float operandoFactorial) {
-	float factorial;
-	if (operandoFactorial == 0 || operandoFactorial == 1) {
+int Factorial(float operandoFactorial) {
+	int factorial = 1;
+	int operandoFactorialInt;
+	operandoFactorialInt = (int) operandoFactorial;
+	if (operandoFactorialInt == 0 || operandoFactorialInt == 1) {
 		return 1;
 	} else {
-		if (operandoFactorial < 0) {
-			return -1;
+		if (operandoFactorialInt < 0) {
+			return EXIT_ERROR;
 		} else {
-			while (operandoFactorial > 1) {
-				factorial = factorial * operandoFactorial;
-				operandoFactorial--;
+			while (operandoFactorialInt > 1) {
+				factorial = factorial * operandoFactorialInt;
+				operandoFactorialInt--;
 			}
 			return factorial;
 		}
