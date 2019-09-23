@@ -15,18 +15,21 @@
 struct sPantalla {
 	int idPantalla;
 	int statusPantalla;
-	//***************
 	char nombrePantalla[50];
 	char direccionPantalla[50];
 	char precioPantalla[50];
 	char tipoPantalla[4];
-
 };
+
 int initLugarLibrePantalla(struct sPantalla *aPantalla, int cantidad);
 int buscarLugarLibrePantalla(struct sPantalla *aPantalla, int cantidad);
 int buscarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id);
 int bajaPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id);
-int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
+/*
+ int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
+ struct sPantalla pantalla, struct sPantalla pantallaNueva);
+ */
+int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id,
 		struct sPantalla pantalla);
 int altaPantallaPorId(struct sPantalla *aPantalla, int cantidad,
 		struct sPantalla pantalla);

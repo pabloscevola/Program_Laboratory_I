@@ -54,7 +54,7 @@ int altaPantallaPorId(struct sPantalla *aPantalla, int cantidad,
 	i = buscarLugarLibrePantalla(aPantalla, cantidad);
 	if (aPantalla != NULL && cantidad > 0 && i != -1) {
 		aPantalla[i] = pantalla;
-		pantalla.statusPantalla = STATUS_NOT_EMPTY;
+		aPantalla[i].statusPantalla = STATUS_NOT_EMPTY;
 		aPantalla[i].idPantalla = generarId();
 		retorno = EXIT_SUCCESS;
 	}
@@ -87,31 +87,48 @@ int bajaPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id) {
 	}
 	return retorno;
 }
-
-int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
+/*
+ int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
+ struct sPantalla pantalla, struct sPantalla pantallaNueva) {
+ int i;
+ int retorno = -1;
+ i = buscarPantallaPorId(aPantalla, cantidad, pantalla.idPantalla);
+ if (aPantalla != NULL && cantidad > 0 && i != -1) {
+ pantallaNueva.idPantalla = aPantalla[i].idPantalla;
+ aPantalla[i] = pantallaNueva;
+ aPantalla[i].statusPantalla = STATUS_NOT_EMPTY;
+ retorno = EXIT_SUCCESS;
+ }
+ return retorno;
+ }
+ */
+int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id,
 		struct sPantalla pantalla) {
 	int i;
 	int retorno = -1;
 	i = buscarPantallaPorId(aPantalla, cantidad, id);
 	if (aPantalla != NULL && cantidad > 0 && i != -1) {
 		aPantalla[i] = pantalla;
-		pantalla.statusPantalla = STATUS_NOT_EMPTY;
-		aPantalla[i].idPantalla = generarId();
+		aPantalla[i].statusPantalla = STATUS_NOT_EMPTY;
+		aPantalla[i].idPantalla = id;
 		retorno = EXIT_SUCCESS;
 	}
 	return retorno;
-
 }
 
-int imprimirArrayPantallas(struct sPantalla *aPantalla, int cantidad) {
+int listarArrayPantallas(struct sPantalla *aPantalla, int cantidad) {
 	int i;
 	int retorno = -1;
 	if (aPantalla != NULL && cantidad > 0) {
 		retorno = 0;
 		for (i = 0; i < cantidad; i++) {
-			printf("Id: %d - Nombre: %s - Apellido: %s \n",
-					aPantalla[i].idPantalla, aPantalla[i].nombre,
-					aPantalla[i].apellido);
+			if (aPantalla[i].statusPantalla == STATUS_NOT_EMPTY) {
+				printf(
+						"Id: %d - Nombre: %s - Direccion: %s  - Precio: %s  - Tipo: %s \n",
+						aPantalla[i].idPantalla, aPantalla[i].nombrePantalla,
+						aPantalla[i].direccionPantalla,
+						aPantalla[i].precioPantalla, aPantalla[i].tipoPantalla);
+			}
 		}
 	}
 	return retorno;
