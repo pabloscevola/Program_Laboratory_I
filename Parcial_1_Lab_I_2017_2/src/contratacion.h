@@ -22,22 +22,21 @@ struct sContratacion {
 	struct sPantalla pantallaContratada;
 };
 
-int buscarLugarLibreContratacion(struct sContratacion *aContratacion, int cantidad);
+int buscarLugarLibreContratacion(struct sContratacion *aContratacion,
+		int cantidad);
 int altaContratacion(struct sContratacion *aContratacion, int cantidad,
 		struct sContratacion contratacion);
+int buscarContratacionPorCuit(struct sContratacion *aContratacion, int cantidad,
+		int cuit);
+int bajaContratacionPorCuit(struct sContratacion *aContratacion, int cantidad,
+		int cuit);
 
-
-
-
-int buscarContratacionPorCuit(struct sPantalla *aPantalla, int cantidad, int id);
-int bajaContratacionPorCuit(struct sPantalla *aPantalla, int cantidad, int id);
 /*
  int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
  struct sPantalla pantalla, struct sPantalla pantallaNueva);
  */
-int modificarContratacionPorCuit(struct sPantalla *aPantalla, int cantidad,
-		int id, struct sPantalla pantalla);
-static int generarId(void);
+int modificarContratacionPorCuit(struct sContratacion *aContratacion,
+		int cantidad, int cuit, struct sContratacion contratacion);
 
 int imprimirArrayPantalla(struct sPantalla *aPantalla, int cantidad);
 int ordenarArrayPantalla(struct sPantalla *aPantalla, int cantidad);

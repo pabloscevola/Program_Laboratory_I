@@ -43,13 +43,14 @@ int altaContratacion(struct sContratacion *aContratacion, int cantidad,
 	return retorno;
 }
 
-int buscarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id) {
+int buscarContratacionPorCuit(struct sContratacion *aContratacion, int cantidad,
+		int cuit) {
 	int retorno = -1;
 	int i;
-	if (aPantalla != NULL && cantidad > 0) {
+	if (aContratacion != NULL && cantidad > 0) {
 		for (i = 0; i < cantidad; i++) {
-			if (aPantalla[i].statusPantalla == STATUS_NOT_EMPTY) {
-				if (aPantalla[i].idPantalla == id) {
+			if (aContratacion[i].statusContratacion == STATUS_NOT_EMPTY) {
+				if (aContratacion[i].cuitCliente == cuit) {
 					retorno = i;
 					break;
 				}
@@ -59,12 +60,13 @@ int buscarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id) {
 	return retorno;
 }
 
-int bajaPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id) {
+int bajaContratacionPorCuit(struct sContratacion *aContratacion, int cantidad,
+		int cuit) {
 	int i;
 	int retorno = -1;
-	i = buscarPantallaPorId(aPantalla, cantidad, id);
-	if (aPantalla != NULL && cantidad > 0 && i != -1) {
-		aPantalla[i].statusPantalla = STATUS_EMPTY;
+	i = buscarContratacionPorCuit(aContratacion, cantidad, cuit);
+	if (aContratacion != NULL && cantidad > 0 && i != -1) {
+		aContratacion[i].statusContratacion = STATUS_EMPTY;
 		retorno = EXIT_SUCCESS;
 	}
 	return retorno;
@@ -84,32 +86,32 @@ int bajaPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id) {
  return retorno;
  }
  */
-int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id,
-		struct sPantalla pantalla) {
+int modificarContratacionPorCuit(struct sContratacion *aContratacion,
+		int cantidad, int cuit, struct sContratacion contratacion) {
 	int i;
 	int retorno = -1;
-	i = buscarPantallaPorId(aPantalla, cantidad, id);
-	if (aPantalla != NULL && cantidad > 0 && i != -1) {
-		aPantalla[i] = pantalla;
-		aPantalla[i].statusPantalla = STATUS_NOT_EMPTY;
-		aPantalla[i].idPantalla = id;
+	i = buscarContratacionPorCuit(aContratacion, cantidad, cuit);
+	if (aContratacion != NULL && cantidad > 0 && i != -1) {
+		aContratacion[i] = contratacion;
+		aContratacion[i].statusContratacion = STATUS_NOT_EMPTY;
+		aContratacion[i].cuitCliente = cuit;
 		retorno = EXIT_SUCCESS;
 	}
 	return retorno;
 }
 
-int listarArrayPantallas(struct sPantalla *aPantalla, int cantidad) {
+int listarArrayContratacion(struct sContratacion *aContratacion, int cantidad) {
 	int i;
 	int retorno = -1;
-	if (aPantalla != NULL && cantidad > 0) {
+	if (aContratacion != NULL && cantidad > 0) {
 		retorno = 0;
 		for (i = 0; i < cantidad; i++) {
-			if (aPantalla[i].statusPantalla == STATUS_NOT_EMPTY) {
+			if (aContratacion[i].statusContratacion == STATUS_NOT_EMPTY) {
 				printf(
-						"Id: %d - Nombre: %s - Direccion: %s  - Precio: %s  - Tipo: %s \n",
-						aPantalla[i].idPantalla, aPantalla[i].nombrePantalla,
-						aPantalla[i].direccionPantalla,
-						aPantalla[i].precioPantalla, aPantalla[i].tipoPantalla);
+						"CUIT: %d - Cantidad de días: %s - Nombre de archivo: %s",
+						aContratacion[i].cuitCliente,
+						aContratacion[i].cantidadDias,
+						aContratacion[i].nombreArchivo);
 			}
 		}
 	}

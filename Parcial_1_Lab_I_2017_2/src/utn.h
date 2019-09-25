@@ -7,6 +7,7 @@
 
 #ifndef UTN_H_
 #define UTN_H_
+
 int getString(char *pResultado, char *pMensaje, char *pMensajeError, int minimo,
 		int maximo, int reintentos);
 

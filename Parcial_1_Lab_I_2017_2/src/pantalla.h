@@ -29,13 +29,13 @@ int bajaPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id);
  int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
  struct sPantalla pantalla, struct sPantalla pantallaNueva);
  */
-int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id,
+int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
 		struct sPantalla pantalla);
 int altaPantallaPorId(struct sPantalla *aPantalla, int cantidad,
 		struct sPantalla pantalla);
 static int generarId(void);
+int listarArrayPantallas(struct sPantalla *aPantalla, int cantidad);
 
-int imprimirArrayPantalla(struct sPantalla *aPantalla, int cantidad);
 int ordenarArrayPantalla(struct sPantalla *aPantalla, int cantidad);
 
 #endif /* PANTALLA_H_ */

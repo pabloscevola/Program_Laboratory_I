@@ -102,7 +102,7 @@ int bajaPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id) {
  return retorno;
  }
  */
-int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id,
+int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad,
 		struct sPantalla pantalla) {
 	int i;
 	int retorno = -1;
@@ -110,7 +110,6 @@ int modificarPantallaPorId(struct sPantalla *aPantalla, int cantidad, int id,
 	if (aPantalla != NULL && cantidad > 0 && i != -1) {
 		aPantalla[i] = pantalla;
 		aPantalla[i].statusPantalla = STATUS_NOT_EMPTY;
-		aPantalla[i].idPantalla = id;
 		retorno = EXIT_SUCCESS;
 	}
 	return retorno;
